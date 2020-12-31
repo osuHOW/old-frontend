@@ -1,3 +1,4 @@
 [submodule "secret"]
 	path = secret
-	url = git@github.com:osuHOW/secret.git
+	url = https://github.com/osuHOW/secret.git
+	
