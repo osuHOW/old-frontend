@@ -552,17 +552,14 @@ function printNavbar() {
 	// Navbar end
 	echo '</ul></div></div></nav>';
 }
-/*
- * printAdminSidebar
- * Prints the admin left sidebar
-*/
 function printAdminSidebar() {
-	echo '<div id="sidebar-wrapper" class="collapse" aria-expanded="false">
+	echo '<div id="sidebar-wrapper">
 					<ul class="sidebar-nav">
 						<li class="sidebar-brand">
 							<a href="#"><b>R</b>ipple <b>A</b>dmin <b>P</b>anel</a>
 						</li>
-						<li><a href="index.php?p=100"><i class="fa fa-tachometer-alt"></i>	Dashboard</a></li>';
+						<li><a href="index.php?p=100"><i class="fa fa-tachometer"></i>	Dashboard</a></li>';
+
 
 						if (hasPrivilege(Privileges::AdminManageSettings)) {
 							echo '<li><a href="index.php?p=101"><i class="fa fa-cog"></i>	System settings</a></li>
@@ -610,8 +607,8 @@ function printAdminSidebar() {
 
 						if (hasPrivilege(Privileges::AdminViewRAPLogs))
 							echo '<li><a href="index.php?p=116"><i class="fa fa-calendar"></i>	Admin log&nbsp;&nbsp;&nbsp;<div class="label label-primary">Free botnets</div></a></li>';
-						echo "<li style='height: 50px;'></li></ul>
-						
+
+						echo "</ul>
 				</div>";
 }
 /*

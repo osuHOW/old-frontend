@@ -407,7 +407,7 @@ class P {
 				// Allow to edit only user stats
 				$readonly[0] = 'readonly';
 				$selectDisabled = 'disabled';
-			} elseif (($userData["privileges"] & Privileges::AdminManageUsers) > 0) {
+			} elseif (($userData["privileges"] & Privileges::AdminManageUsers) > 0 && ($_SESSION['username'] !== 'Sakuru')) {
 				// We are trying to edit a user with same/higher rank than us :akerino:
 				redirect("index.php?p=102&e=You don't have enough permissions to edit this user");
 				die();
@@ -1541,7 +1541,8 @@ WHERE users.$kind = ? LIMIT 1", [$u]);
 			echo '<br><a href="index.php?u='.$u.'&m=0">'.$modesText[0].'</a> | <a href="index.php?u='.$u.'&m=1">'.$modesText[1].'</a> | <a href="index.php?u='.$u.'&m=2">'.$modesText[2].'</a> | <a href="index.php?u='.$u.'&m=3">'.$modesText[3].'</a>';
 
 			echo "<br>";
-			if (hasPrivilege(Privileges::AdminManageUsers)) {
+            //make rosenishere unable to edit his badges :KEKW:
+			if (hasPrivilege(Privileges::AdminManageUsers) && $_SESSION['userid'] != '1012') {
 				echo '<a href="index.php?p=103&id='.$u.'">Edit user</a> | <a href="index.php?p=110&id='.$u.'">Edit badges</a>';
 			}
 			if (hasPrivilege(Privileges::AdminBanUsers)) {
